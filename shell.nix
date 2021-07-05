@@ -5,9 +5,9 @@ let
   fixJuliaPkgs = writeScriptBin "fixJuliaPkgs" ''
     #!/usr/bin/env bash
 
-    PKG_DIR=~/.julia/artifacts
+    PKG_DIR=~/.julia/
 
-    for ARTIFACT in $(find ~/.julia/artifacts/*/bin) 
+    for ARTIFACT in $(find $PKG_DIR/artifacts/*/bin) 
     do
       chmod +w $ARTIFACT
       ${patchelf}/bin/patchelf \
